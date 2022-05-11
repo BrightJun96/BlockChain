@@ -8,7 +8,14 @@ export interface IMinerPageProps {}
 
 export default function MinerPage(props: IMinerPageProps) {
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-around",
+        minHeight: "100vh",
+      }}
+    >
       <Header />
       <MinerInput />
       <AddTransaction />
