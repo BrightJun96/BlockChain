@@ -1,9 +1,9 @@
 import * as React from "react";
-import AddTransaction from "../components/AddTransaction";
-import BlockChain from "../components/BlockChain";
-import Header from "../components/Header";
-import MinerInput from "../components/MinerInput";
-import PendingTransactions from "../components/PendingTransactions";
+import ContainerAddTransaction from "../containers/ContainerAddTransaction";
+import ContainerBlockChain from "../containers/ContainerBlockChain";
+import ContainerHeader from "../containers/ContainerHeader";
+import ContainerMinerInput from "../containers/ContainerMinerInput";
+import ContainerPendingTransactions from "../containers/ContainerPendingTransactions";
 export interface IMinerPageProps {}
 
 export default function MinerPage(props: IMinerPageProps) {
@@ -16,11 +16,11 @@ export default function MinerPage(props: IMinerPageProps) {
         minHeight: "100vh",
       }}
     >
-      <Header />
-      <MinerInput />
-      <AddTransaction />
-      <PendingTransactions />
-      <BlockChain />
+      <ContainerHeader />
+      <ContainerMinerInput />
+      <ContainerAddTransaction />
+      <ContainerPendingTransactions />
+      <ContainerBlockChain />
     </div>
   );
 }

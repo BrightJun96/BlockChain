@@ -1,8 +1,11 @@
 import * as React from "react";
 
-export interface IHeaderProps {}
+export interface IHeaderProps {
+  coinRate: number;
+  coinCount: number;
+}
 
-export default function Header(props: IHeaderProps) {
+export default function Header({ coinRate, coinCount }: IHeaderProps) {
   return (
     <div>
       <nav
@@ -15,9 +18,9 @@ export default function Header(props: IHeaderProps) {
         <div>
           <div style={{ display: "flex" }}>
             <h4 style={{ marginRight: "10px" }}>Miner : Jev (state)</h4>
-            <h4>Coins : 0(state)</h4>
+            <h4>Coins : {coinCount}</h4>
           </div>
-          <h2>코인시세 : 1000(state)</h2>
+          <h2>코인시세 :{coinRate}</h2>
         </div>
       </nav>
       <div>

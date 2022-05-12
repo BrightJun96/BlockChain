@@ -1,8 +1,12 @@
 import * as React from "react";
 
-export interface IPendingTransactionsProps {}
+export interface IPendingTransactionsProps {
+  increaseCoinCount: () => { payload: undefined; type: string };
+}
 
-export default function PendingTransactions(props: IPendingTransactionsProps) {
+export default function PendingTransactions({
+  increaseCoinCount,
+}: IPendingTransactionsProps) {
   return (
     <div>
       <h2>보류중인 거래</h2>
@@ -12,7 +16,7 @@ export default function PendingTransactions(props: IPendingTransactionsProps) {
         <span>거래3</span>
       </div>
 
-      <button>Generate Block</button>
+      <button onClick={increaseCoinCount}>Generate Block</button>
     </div>
   );
 }
