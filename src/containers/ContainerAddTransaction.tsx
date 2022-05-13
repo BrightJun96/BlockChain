@@ -1,7 +1,12 @@
 import * as React from "react";
 import AddTransaction from "../components/AddTransaction";
 import { coinRateIncrement } from "../features/coinSlice";
-import { useAppDispatch } from "./../app/hooks";
+import {
+  selectText,
+  textSliceStateKeyType,
+  transactionInputChange,
+} from "../features/textSlice";
+import { useAppDispatch, useAppSelector } from "./../app/hooks";
 
 export interface IContainerAddTransactionProps {}
 
@@ -10,7 +15,26 @@ export default function ContainerAddTransaction(
 ) {
   const dispatch = useAppDispatch();
 
+  const { text } = useAppSelector(selectText);
   const increaseCoinRate = () => dispatch(coinRateIncrement());
 
-  return <AddTransaction increaseCoinRate={increaseCoinRate} />;
+  const onChangeTransactionField: React.ChangeEventHandler<HTMLInputElement> = (
+    e
+  ) => {
+    dispatch(
+      // key는 state의 키만 들어가야한다?
+      transactionInputChange({
+        key: e.target.name as textSliceStateKeyType,
+        value: e.target.value,
+      })
+    );
+  };
+
+  return (
+    <AddTransaction
+      increaseCoinRate={increaseCoinRate}
+      onChangeTransactionField={onChangeTransactionField}
+      text={text}
+    />
+  );
 }

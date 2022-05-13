@@ -1,8 +1,8 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import coinReducer from "../features/coinSlice";
-
+import textReducer from "../features/textSlice";
 export const store = configureStore({
-  reducer: { coin: coinReducer },
+  reducer: { coin: coinReducer, text: textReducer },
 });
 
 export type AppDispatch = typeof store.dispatch;
