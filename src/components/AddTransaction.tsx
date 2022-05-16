@@ -1,5 +1,5 @@
 import * as React from "react";
-import { textSliceInitState } from "../features/textSlice";
+import { textSliceInitState } from "../slices/textSlice";
 
 export interface IAddTransactionProps {
   increaseCoinRate: () => { payload: undefined; type: string };

@@ -3,9 +3,14 @@ import * as React from "react";
 export interface IHeaderProps {
   coinRate: number;
   coinCount: number;
+  minerName: string;
 }
 
-export default function Header({ coinRate, coinCount }: IHeaderProps) {
+export default function Header({
+  coinRate,
+  coinCount,
+  minerName,
+}: IHeaderProps) {
   return (
     <div>
       <nav
@@ -17,7 +22,7 @@ export default function Header({ coinRate, coinCount }: IHeaderProps) {
         <h1>BlockChain - Miner Zone</h1>
         <div>
           <div style={{ display: "flex" }}>
-            <h4 style={{ marginRight: "10px" }}>Miner : Jev (state)</h4>
+            <h4 style={{ marginRight: "10px" }}>Miner : {minerName} </h4>
             <h4>Coins : {coinCount}</h4>
           </div>
           <h2>코인시세 :{coinRate}</h2>

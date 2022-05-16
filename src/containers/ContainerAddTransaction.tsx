@@ -1,11 +1,11 @@
 import * as React from "react";
 import AddTransaction from "../components/AddTransaction";
-import { coinRateIncrement } from "../features/coinSlice";
+import { coinRateIncrement } from "../slices/coinSlice";
 import {
   selectText,
   textSliceStateKeyType,
   transactionInputChange,
-} from "../features/textSlice";
+} from "../slices/textSlice";
 import { useAppDispatch, useAppSelector } from "./../app/hooks";
 
 export interface IContainerAddTransactionProps {}

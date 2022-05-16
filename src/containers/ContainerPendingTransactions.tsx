@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useAppDispatch } from "../app/hooks";
 import PendingTransactions from "../components/PendingTransactions";
-import { coinCountIncrement } from "../features/coinSlice";
+import { coinCountIncrement } from "../slices/coinSlice";
 
 export interface IContainerPendingTransactionsProps {}
 

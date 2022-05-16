@@ -14,6 +14,7 @@ export interface textSliceInitState {
   sender: string;
   recipient: string;
   amount: string;
+  minerName: string;
 }
 
 const initialState: textSliceInitState = {
@@ -21,6 +22,7 @@ const initialState: textSliceInitState = {
   sender: "",
   recipient: "",
   amount: "",
+  minerName: "",
 };
 
 export type textSliceStateKeyType = "sender" | "recipient" | "amount";
@@ -29,10 +31,18 @@ const textSlice = createSlice({
   initialState,
   reducers: {
     // dispatch(minerNameChange(action.payload값))
-    minerNameChange: (state, { payload: minerNameText }) => {
+    minerNameChange: (
+      state,
+      { payload: minerNameText }: PayloadAction<string>
+    ) => {
       state.miner = minerNameText;
     },
-
+    initMinerName(state) {
+      state.miner = "";
+    },
+    registerMinerName(state) {
+      state.minerName = state.miner;
+    },
     transactionInputChange: (
       state,
       {
@@ -44,10 +54,16 @@ const textSlice = createSlice({
   },
 });
 
-export const { minerNameChange, transactionInputChange } = textSlice.actions;
+export const {
+  minerNameChange,
+  transactionInputChange,
+  initMinerName,
+  registerMinerName,
+} = textSlice.actions;
 
 export const selectText = ({ text }: RootState) => ({
   miner: text.miner,
+  minerName: text.minerName,
   text,
 });
 
