@@ -12,6 +12,9 @@ export default function AddTransaction({
   text,
   onChangeTransactionField,
 }: IAddTransactionProps) {
+  const condition =
+    Boolean(text.sender) && Boolean(text.recipient) && Boolean(text.amount);
+
   return (
     <div>
       <h2>거래 추가</h2>
@@ -42,10 +45,12 @@ export default function AddTransaction({
           value={text.amount}
           name="amount"
           id="amount"
-          placeholder="Amount"
+          placeholder="Coin Amount"
         />
       </label>
-      <button onClick={increaseCoinRate}>Transfer Coin</button>
+      <button disabled={!condition} onClick={increaseCoinRate}>
+        Transfer
+      </button>
     </div>
   );
 }
