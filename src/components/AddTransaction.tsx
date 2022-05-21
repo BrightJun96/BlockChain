@@ -40,7 +40,7 @@ export default function AddTransaction({
       </label>
       <label htmlFor="amount">
         <input
-          type="text"
+          type="number"
           onChange={onChangeTransactionField}
           value={text.amount}
           name="amount"
