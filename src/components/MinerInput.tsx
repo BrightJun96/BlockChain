@@ -23,6 +23,7 @@ export default function MinerInput({
           onChange={onChangeMinerName}
           value={miner}
           placeholder="채굴자명을 입력하세요."
+          required
         />
       </label>
       {/* 타입변환

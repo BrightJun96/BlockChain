@@ -2,8 +2,8 @@ import * as React from "react";
 import AddTransaction from "../components/AddTransaction";
 import { coinRateIncrement } from "../slices/coinSlice";
 import {
+  InterTransaction,
   selectText,
-  textSliceStateKeyType,
   transactionInputChange,
 } from "../slices/textSlice";
 import { useAppDispatch, useAppSelector } from "./../app/hooks";
@@ -22,9 +22,8 @@ export default function ContainerAddTransaction(
     e
   ) => {
     dispatch(
-      // key는 state의 키만 들어가야한다?
       transactionInputChange({
-        key: e.target.name as textSliceStateKeyType,
+        key: e.target.name as keyof InterTransaction,
         value: e.target.value,
       })
     );

@@ -1,10 +1,10 @@
 import * as React from "react";
-import { textSliceInitState } from "../slices/textSlice";
+import { InterTransaction } from "../slices/textSlice";
 
 export interface IAddTransactionProps {
   increaseCoinRate: () => { payload: undefined; type: string };
   onChangeTransactionField: React.ChangeEventHandler<HTMLInputElement>;
-  text: textSliceInitState;
+  text: InterTransaction;
 }
 
 export default function AddTransaction({
@@ -26,6 +26,7 @@ export default function AddTransaction({
           id="sender"
           name="sender"
           placeholder="Sender"
+          required
         />
       </label>
       <label htmlFor="recipient">
@@ -36,6 +37,7 @@ export default function AddTransaction({
           placeholder="Recipient"
           onChange={onChangeTransactionField}
           value={text.recipient}
+          required
         />
       </label>
       <label htmlFor="amount">
@@ -46,6 +48,7 @@ export default function AddTransaction({
           name="amount"
           id="amount"
           placeholder="Coin Amount"
+          required
         />
       </label>
       <button disabled={!condition} onClick={increaseCoinRate}>

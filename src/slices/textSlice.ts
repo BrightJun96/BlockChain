@@ -9,23 +9,25 @@ sender/reciever/amount(AddTransaction.tsx)
 */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../app/store";
-export interface textSliceInitState {
-  miner: string;
+
+export interface InterTransaction {
   sender: string;
   recipient: string;
   amount: string;
+}
+
+export interface textSliceInitState {
+  miner: string;
   minerName: string;
+  transaction: InterTransaction;
 }
 
 const initialState: textSliceInitState = {
   miner: "",
-  sender: "",
-  recipient: "",
-  amount: "",
   minerName: "",
+  transaction: { sender: "", recipient: "", amount: "" },
 };
 
-export type textSliceStateKeyType = "sender" | "recipient" | "amount";
 const textSlice = createSlice({
   name: "text",
   initialState,
@@ -47,9 +49,9 @@ const textSlice = createSlice({
       state,
       {
         payload: { key, value },
-      }: PayloadAction<{ key: keyof textSliceInitState; value: string }>
+      }: PayloadAction<{ key: keyof InterTransaction; value: string }>
     ) => {
-      state[key] = value;
+      state.transaction[key] = value;
     },
   },
 });
@@ -64,7 +66,7 @@ export const {
 export const selectText = ({ text }: RootState) => ({
   miner: text.miner,
   minerName: text.minerName,
-  text,
+  text: text.transaction,
 });
 
 const textReducer = textSlice.reducer;
